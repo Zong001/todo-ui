@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getAllTodos } from "../services/TodoService";
 
 export default function ListTodoComponent() {
-  const dummyData = [
-    {
-      id: 1,
-      title: "Learn Spring Boot",
-      description: "Learn Spring boot with project",
-      completed: true,
-    },
-    {
-      id: 2,
-      title: "Learn Hibernate updated",
-      description: "Learn Hibernate with project updated",
-      completed: true,
-    },
-  ];
-  const [todos, setTodos] = useState(dummyData);
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    listTodos();
+  }, []);
+
+  function listTodos() {
+    getAllTodos()
+      .then((response) => {
+        setTodos(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   return (
     <div className="container">
       <h2 className="text-center">List of Todos</h2>
