@@ -12,7 +12,7 @@ export default function ListTodoComponent() {
       id: 2,
       title: "Learn Hibernate updated",
       description: "Learn Hibernate with project updated",
-      completed: false,
+      completed: true,
     },
   ];
   const [todos, setTodos] = useState(dummyData);
