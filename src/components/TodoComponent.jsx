@@ -9,7 +9,7 @@ const TodoComponent = () => {
   const [completed, setCompleted] = useState(false);
   const navigate = useNavigate();
 
-  function saveTodo(e) {
+  function saveOrUpdateTodo(e) {
     e.preventDefault();
 
     const todo = { title, description, completed };
@@ -71,7 +71,7 @@ const TodoComponent = () => {
 
                 <button
                   className="btn btn-success"
-                  onClick={(e) => saveTodo(e)}
+                  onClick={(e) => saveOrUpdateTodo(e)}
                 >
                   Submit
                 </button>
