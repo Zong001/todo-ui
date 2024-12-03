@@ -24,7 +24,7 @@ export default function ListTodoComponent() {
   }
 
   function updateTodo(id) {
-    console.log(id);
+    // console.log(id);
     navigate(`/update-todo/${id}`);
   }
 
