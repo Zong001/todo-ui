@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { saveTodo } from "../services/TodoService";
 
 const TodoComponent = () => {
   const [title, setTitle] = useState("");
@@ -13,6 +14,15 @@ const TodoComponent = () => {
 
     const todo = { title, description, completed };
     console.log(todo);
+
+    saveTodo(todo)
+      .then((response) => {
+        console.log(response.data);
+        navigate("/todos");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
   return (
     <div>
