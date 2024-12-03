@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllTodos, deleteTodo } from "../services/TodoService";
+import { getAllTodos, deleteTodo, completeTodo } from "../services/TodoService";
 import { useNavigate } from "react-router-dom";
 
 export default function ListTodoComponent() {
@@ -30,6 +30,16 @@ export default function ListTodoComponent() {
 
   function removeTodo(id) {
     deleteTodo(id)
+      .then((response) => {
+        listTodos();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  function markCompleteTodo(id) {
+    completeTodo(id)
       .then((response) => {
         listTodos();
       })
@@ -73,6 +83,13 @@ export default function ListTodoComponent() {
                     style={{ marginLeft: "10px" }}
                   >
                     Delete
+                  </button>
+                  <button
+                    className="btn btn-success"
+                    onClick={() => markCompleteTodo(todo.id)}
+                    style={{ marginLeft: "10px" }}
+                  >
+                    Complete
                   </button>
                 </td>
               </tr>
