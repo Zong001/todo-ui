@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getAllTodos, deleteTodo, completeTodo } from "../services/TodoService";
+import {
+  getAllTodos,
+  deleteTodo,
+  completeTodo,
+  inCompleteTodo,
+} from "../services/TodoService";
 import { useNavigate } from "react-router-dom";
 
 export default function ListTodoComponent() {
@@ -40,6 +45,16 @@ export default function ListTodoComponent() {
 
   function markCompleteTodo(id) {
     completeTodo(id)
+      .then((response) => {
+        listTodos();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  function markInCompleteTodo(id) {
+    inCompleteTodo(id)
       .then((response) => {
         listTodos();
       })
@@ -90,6 +105,13 @@ export default function ListTodoComponent() {
                     style={{ marginLeft: "10px" }}
                   >
                     Complete
+                  </button>
+                  <button
+                    className="btn btn-info"
+                    onClick={() => markInCompleteTodo(todo.id)}
+                    style={{ marginLeft: "10px" }}
+                  >
+                    In Complete
                   </button>
                 </td>
               </tr>

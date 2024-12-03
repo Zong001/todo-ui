@@ -14,3 +14,5 @@ export const updateTodo = (id, todo) =>
 export const deleteTodo = (id) => axios.delete(BASE_REST_API_URL + "/" + id);
 export const completeTodo = (id) =>
   axios.patch(BASE_REST_API_URL + "/" + id + "/complete");
+export const inCompleteTodo = (id) =>
+  axios.patch(BASE_REST_API_URL + "/" + id + "/in-complete");
