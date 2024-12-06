@@ -69,7 +69,7 @@ const RegisterComponent = () => {
                   <label className="col-md-3 control-label">Password</label>
                   <div className="col-md-9">
                     <input
-                      type="text"
+                      type="password"
                       name="password"
                       className="form-control"
                       placeholder="Enter password"
