@@ -13,9 +13,9 @@ const LoginComponent = () => {
     const loginObj = { username, password };
     console.log(loginObj);
 
-    loginAPICall(loginObj)
+    loginAPICall(loginObj.username, loginObj.password)
       .then((response) => {
-        console.log(response.data);
+        console.log(response);
         navigator("/todos");
       })
       .catch((error) => {
