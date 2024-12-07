@@ -10,10 +10,10 @@ const LoginComponent = () => {
 
   function handleLoginForm(e) {
     e.preventDefault();
-    const loginObj = { username, password };
+    const loginObj = { usernameOrEmail: username, password };
     console.log(loginObj);
 
-    loginAPICall(loginObj.username, loginObj.password)
+    loginAPICall(loginObj)
       .then((response) => {
         console.log(response);
         navigator("/todos");
