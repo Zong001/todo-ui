@@ -15,15 +15,22 @@ const LoginComponent = () => {
 
     loginAPICall(loginObj)
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
         const token =
           "Basic " +
           window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
+        console.log(token + "why");
+        console.log(`${loginObj.usernameOrEmail}:${loginObj.password}`);
+
         storeToken(token);
         navigator("/todos");
       })
       .catch((error) => {
+        console.log("why");
+        console.error("Error response:", error.response?.data);
+
         console.error(error);
+        console.log("Login object:", loginObj); // 打印发出的数据
       });
   }
 

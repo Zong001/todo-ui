@@ -7,7 +7,10 @@ const BASE_REST_API_URL = "http://localhost:8080/api/todos";
 axios.interceptors.request.use(
   function (config) {
     // Do something before request is sent
-    config.headers["Authorization"] = getToken();
+    const token = getToken();
+    console.log(`te ${token}`);
+
+    config.headers["Authorization"] = token;
     return config;
   },
   function (error) {
