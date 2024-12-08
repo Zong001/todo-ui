@@ -13,17 +13,30 @@ const LoginComponent = () => {
     const loginObj = { usernameOrEmail: username, password };
     console.log(loginObj);
 
-    loginAPICall(loginObj)
-      .then((response) => {
-        console.log("this");
 
-        console.log(response);
+    console.log("usernameOrEmail:", username);
+    console.log("password:", password);
+    console.log("loginObj:", loginObj);
+
+    loginAPICall(username, password)
+      .then((response) => {
+        // console.log(response.data);
+        // const token =
+        //   "Basic " +
+        //   window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
+        // console.log(token + "why");
+        // console.log(`${loginObj.usernameOrEmail}:${loginObj.password}`);
         const token =
           "Basic " +
           window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
-        console.log(token);
+
 
         storeToken(token);
+
+        // storeToken(
+        //   "Basic " +
+        //     window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`)
+        // );
         navigator("/todos");
       })
       .catch((error) => {
