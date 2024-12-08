@@ -16,21 +16,21 @@ const LoginComponent = () => {
     loginAPICall(loginObj)
       .then((response) => {
         // console.log(response.data);
+        const token =
+          "Basic " +
+          window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
+        // console.log(token + "why");
+        // console.log(`${loginObj.usernameOrEmail}:${loginObj.password}`);
         // const token =
         //   "Basic " +
         //   window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
-        // console.log(token + "why");
-        // console.log(`${loginObj.usernameOrEmail}:${loginObj.password}`);
-        const token =
-          "aBasic " +
-          window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
         console.log(token);
 
-        console.log(
-          "a " +
-            "Basic " +
-            window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`)
-        );
+        // console.log(
+        //   "a " +
+        //     "Basic " +
+        //     window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`)
+        // );
 
         storeToken(token);
         navigator("/todos");
