@@ -15,7 +15,6 @@ const LoginComponent = () => {
 
     loginAPICall(loginObj)
       .then((response) => {
-
         console.log("this");
 
         console.log(response);
