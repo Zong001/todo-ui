@@ -16,7 +16,9 @@ const LoginComponent = () => {
     loginAPICall(loginObj)
       .then((response) => {
         console.log(response);
-        const token = "Basic" + window.btoa(username + ":" + password);
+        const token =
+          "Basic " +
+          window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
         storeToken(token);
         navigator("/todos");
       })
