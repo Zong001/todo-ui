@@ -13,7 +13,7 @@ const LoginComponent = () => {
     const loginObj = { usernameOrEmail: username, password };
     console.log(loginObj);
 
-    loginAPICall(username, password)
+    loginAPICall(loginObj)
       .then((response) => {
         // console.log(response.data);
         // const token =
