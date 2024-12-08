@@ -13,6 +13,7 @@ const LoginComponent = () => {
     const loginObj = { usernameOrEmail: username, password };
     console.log(loginObj);
 
+
     console.log("usernameOrEmail:", username);
     console.log("password:", password);
     console.log("loginObj:", loginObj);
@@ -29,6 +30,7 @@ const LoginComponent = () => {
           "Basic " +
           window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
 
+
         storeToken(token);
 
         // storeToken(
@@ -39,10 +41,8 @@ const LoginComponent = () => {
       })
       .catch((error) => {
         console.log("why");
-        console.error("Error response:", error.response?.data);
 
         console.error(error);
-        console.log("Login object:", loginObj); // 打印发出的数据
       });
   }
 
