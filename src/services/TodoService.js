@@ -3,15 +3,12 @@ import { getToken } from "./AuthService";
 
 const BASE_REST_API_URL = "http://localhost:8080/api/todos";
 
-export function getAllTodos() {
-  return axios.get(BASE_REST_API_URL);
-}
-
 // Add a request interceptor
 axios.interceptors.request.use(
   function (config) {
     // Do something before request is sent
-    config.headers["Authorization"] = getToken();
+    const token = getToken();
+    config.headers["Authorization"] = token;
     return config;
   },
   function (error) {
@@ -19,6 +16,10 @@ axios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+export function getAllTodos() {
+  return axios.get(BASE_REST_API_URL);
+}
 
 // export const getAllTodos = () => axios.get(BASE_REST_API_URL);
 export const saveTodo = (todo) => axios.post(BASE_REST_API_URL, todo);
