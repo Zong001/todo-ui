@@ -15,12 +15,16 @@ const LoginComponent = () => {
 
     loginAPICall(loginObj)
       .then((response) => {
+        console.log("this");
+
         console.log(response);
-        const token = "Basic" + window.btoa(username + ":" + password);
+        const token = "Basic " + window.btoa(username + ":" + password);
         storeToken(token);
         navigator("/todos");
       })
       .catch((error) => {
+        console.log("why");
+
         console.error(error);
       });
   }
