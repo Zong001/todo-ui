@@ -18,7 +18,11 @@ const LoginComponent = () => {
         console.log("this");
 
         console.log(response);
-        const token = "Basic " + window.btoa(username + ":" + password);
+        const token =
+          "Basic " +
+          window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
+        console.log(token);
+
         storeToken(token);
         navigator("/todos");
       })
