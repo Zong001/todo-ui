@@ -8,8 +8,6 @@ axios.interceptors.request.use(
   function (config) {
     // Do something before request is sent
     const token = getToken();
-    console.log(`te ${token}`);
-
     config.headers["Authorization"] = token;
     return config;
   },

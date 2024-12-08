@@ -7,13 +7,8 @@ export function registerAPICall(registerObj) {
 }
 
 export const loginAPICall = (loginObj) =>
-  axios.post(AUTH_REST_API_BASE_URL + "/login", { loginObj }).catch((error) => {
-    console.log("begin");
 
-    console.error("Error:", error.message);
-    console.error("Request:", error.request); // 查看请求细节
-    console.error("Response:", error.response); // 查看响应细节
-  });
+  axios.post(AUTH_REST_API_BASE_URL + "/login", loginObj);
 
 export const storeToken = (token) => localStorage.setItem("token", token);
 
