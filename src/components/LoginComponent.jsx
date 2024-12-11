@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { loginAPICall, storeToken } from "../services/AuthService";
+import {
+  loginAPICall,
+  saveLoggedInUser,
+  storeToken,
+} from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
 
 const LoginComponent = () => {
@@ -25,7 +29,10 @@ const LoginComponent = () => {
 
         storeToken(token);
 
+        saveLoggedInUser(username);
+
         navigator("/todos");
+        window.location.reload(false);
       })
       .catch((error) => {
         console.log("why");
