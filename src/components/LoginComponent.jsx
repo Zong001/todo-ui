@@ -33,7 +33,7 @@ const LoginComponent = () => {
 
         storeToken(token);
 
-        saveLoggedInUser(username);
+        saveLoggedInUser(username, role);
 
         navigator("/todos");
         window.location.reload(false);
