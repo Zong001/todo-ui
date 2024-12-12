@@ -23,9 +23,11 @@ const LoginComponent = () => {
 
     loginAPICall(username, password)
       .then((response) => {
-        const token =
-          "Basic " +
-          window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
+        // const token =
+        //   "Basic " +
+        //   window.btoa(`${loginObj.usernameOrEmail}:${loginObj.password}`);
+
+        const token = "Bearer " + response.data.accessToken;
 
         storeToken(token);
 
