@@ -47,7 +47,7 @@ const LoginComponent = () => {
     <div className="container">
       <br />
       <div className="row">
-        <div className="rol-md-6 offset-md-3">
+        <div className="col-md-6 offset-md-3">
           <div className="card">
             <div className="card-header">
               <h2 className="text-center">User Login From</h2>
